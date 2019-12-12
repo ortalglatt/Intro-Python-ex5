@@ -1,0 +1,64 @@
+ortal.netzer
+312416845
+ortal glatt
+
+
+=============================
+=  README for ex4:   =
+=============================
+
+
+==================
+=  Description:  =
+==================
+In this exercise, we built a program that searching for words in a matrix of
+letters in any directions the user put in.
+
+The functions in ex4:
+
+hangman.py:
+* "check_input_args"
+The checking if the list is valid done by another function called
+"is_args_valid". This function check if their are 4 strings in the list, if the
+word list file and the matrix file are exist, and if the directions are valid.
+
+* "read_wordlist_file"
+* "read_matrix_file"
+
+* "find_words_in_matrix" -
+This function based on some other functions. when I built this function I
+thought that the best way to check if the letter is in the matrix, is by
+changing the rows from lists to strings and check if the letter in the string.
+I decided to built this function and find a way to change the matrix to a list
+of list that containing the rows for every specific directions.
+
+1. The function "words_in_mat_left_to_right" gets a word list and a matrix, and
+return a dictionary of the words that appear from right to left in the matrix,
+and how many times they appear.
+This function using the function "times_word_in_string" gets a word and a
+string and counting how many times the word appear in the string.
+2. After that I needed to create some functions that will help me turn the
+original matrix rows list to a list of lists, that feet the order from left to
+right I needed to check in every direction.
+First function for that is "mat_reverse_rows" that return a new matrix that
+it's rows contain the same letters in the opposite order.
+Second one is "mat_transpose" that return the transposed matrix, by turning
+every row to a column.
+The last function for that stage is "mat_diagonal_rows", that using 2 other
+functions - "max_diagonal_list" and "without_max_diagonal_list" - to return a
+list of lists, that every sublist contain the letters in one of the diagonals.
+3. The function "dictionary_to_list" gets a dictionary with words and the time
+every word appear and return a list of tuples, that every tuple contains the
+key (word) and the value(number).
+
+At the end, by using all those functions the function "find_words_in_matrix"
+return a list of tuples that including all the words that appear in the matrix
+in the given directions and the number of times the words appear.
+
+* "write_output_file"
+* "word_search" - This is the main function that using all the other functions
+before.
+This function get a list of 4 strings, check if the input is valid. If it is
+valid, the list contains the words list filename, the matrix filename, the
+output filename and the directions. The function will do the words search in
+the matrix and create a file of the output results.
